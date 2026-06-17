@@ -21,7 +21,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             <div className="bg-[#ff8c00] p-2 rounded-lg">
               <School className="text-white h-5 w-5" />
             </div>
-            <span className="font-display text-lg font-bold text-brand-primary">Inclusive Learning</span>
+            <span className="font-display text-lg font-bold text-brand-primary">Gamificar Para Incluir</span>
           </div>
           
           <p className="font-sans text-sm text-[#5f5e5e] leading-relaxed">
