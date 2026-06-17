@@ -1,0 +1,6 @@
+{
+  "name": "GAMIFICAR PARA INCLUIR",
+  "description": "Uma plataforma educacional acessível que promove a gamificação inclusiva orientada pelos princípios do Desenho Universal para a Aprendizagem (DUA).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
