@@ -256,7 +256,7 @@ export default function CourseCatalog({
           </div>
         </div>
       </section>
-
+<Missions/>
       {/* 4. Core Catalog Section */}
       <section className="py-20 bg-gray-50 border-y border-gray-100" id="catalogo-jogos">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -370,7 +370,7 @@ export default function CourseCatalog({
         </div>
       </section>
 
-      <Missions/>
+      
 
       {/* 5. Teachers' Testimonials/Reviews */}
       <section className="py-20 bg-white" id="testemunhos-docentes">
