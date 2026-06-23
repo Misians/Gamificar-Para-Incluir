@@ -42,24 +42,6 @@ export const GAMES_DATA: Game[] = [
     longDescription: 'Minecraft: Education Edition é uma plataforma de aprendizagem baseada em jogos que oferece aos educadores uma maneira transformadora de engajar os alunos usando o Minecraft e fortalecer suas habilidades de colaboração, resolução de problemas e comunicação digital.'
   },
   {
-    id: 'matific',
-    name: 'Matific: Aventuras Matemáticas',
-    platform: 'Web & Tablet',
-    category: 'Matemática',
-    tagBg: 'bg-[#ffdcc3] text-[#2f1500]',
-    tagColor: 'text-[#ff8c00]',
-    description: 'Minijogos interativos e atividades estimulantes para ensinar conceitos matemáticos visualmente.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD86UvPt_UM08Zb3rIHdgnbihzlfRQZf6kMGMxvreWcHbTDWOj6PrIrU-_YGNH2ahd5wf-sY9F9_krAPa0TBCT1BGphNSjyMYZce1qJ23LvkxFPB-O8_-t3MWHYjQxKzHBSm-XMQkE835jz55PqQoM-d3aMBZV96ZlmvzYeqveWdHR0OuLIB8MHGPmehCOM3kRmE0Qvvj3eKIL47eZtO1YrCzjlAzNYzgwgYQ_n7fr8bZHIDCHbBHDZ8RIdwG6HIKgnLyxmmcjR3D8y',
-    alt: 'Visual de quebra-cabeças matemáticos da Matific',
-    rating: 4.7,
-    reviewsCount: '850 avaliações',
-    version: 'v5.0.4 (Dez 2024)',
-    size: 'N/A (Web)',
-    languages: ['Português', 'Espanhol', 'Inglês'],
-    developer: 'Matific Inc.',
-    longDescription: 'A Matific é uma plataforma premiada que oferece atividades matemáticas interativas no formato de minijogos cativantes. Seu algoritmo inteligente seleciona as atividades ideais para apoiar o plano de aula do professor e atender às necessidades personalizadas de aprendizagem dos estudantes.'
-  },
-  {
     id: 'roblox',
     name: 'Roblox: Criando Mundos',
     platform: 'iOS & Android',

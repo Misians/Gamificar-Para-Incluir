@@ -3,9 +3,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import AccessibilityControls from './components/AccessibilityControls';
 import CourseCatalog from './components/CourseCatalog';
-import ContactForm from './components/ContactForm';
-import GameDetails from './components/GameDetails';
-import AdminPanel from './components/AdminPanel'; // IMPORT NOVO
+import ContactForm from './components/ContactForm.tsx';
+import GameDetails from './components/GameDetails.tsx';
+import AdminPanel from './components/adminPanel.tsx'; // IMPORT NOVO
 import { useGames } from './hooks/useGames'; // IMPORT NOVO
 import { PageType } from './types';
 import { motion, AnimatePresence } from 'motion/react';

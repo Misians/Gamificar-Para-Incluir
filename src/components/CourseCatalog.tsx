@@ -3,6 +3,7 @@ import { Sparkles, Lightbulb, Gamepad2, BarChart3, Eye, ArrowRight, UserCheck, Q
 import { REVIEWS_DATA, FOUNDERS_DATA } from '../data'; // GAMES_DATA removido daqui
 import { Game, PageType } from '../types';
 import { motion } from 'motion/react';
+import Missions from '../components/Missions.tsx'
 
 interface CourseCatalogProps {
   onSelectGame: (gameId: string) => void;
@@ -29,7 +30,7 @@ export default function CourseCatalog({
     return matchesSearch && game.category.toLowerCase() === activeCategory.toLowerCase();
   });
 
-  const categories = ['todos', 'alfabetização', 'inclusivo', 'matemática', 'colaborativo', 'linguagens'];
+  const categories = ['todos', 'alfabetização', 'inclusivo', 'colaborativo', 'linguagens'];
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -68,7 +69,7 @@ export default function CourseCatalog({
               O Guia de Jogos Educativos Acessíveis apoia educadores na integração da gamificação escolar. Baseado nos princípios do Desenho Universal para a Aprendizagem (DUA), ele oferece orientações práticas para:
             </p>
             <ul className="list-disc list-inside text-sm md:text-base text-[#5f5e5e] max-w-xl leading-relaxed">
-              <li>Adaptar recursos e atividades de forma sensível.</li>
+              <li>Acessibilizar recursos e atividades de forma sensível.</li>
               <li>Respeitar os diferentes ritmos e estilos de aprendizagem.</li>
               <li>Eliminar barreiras e valorizar o potencial de cada aluno.</li>
             </ul>
@@ -368,6 +369,8 @@ export default function CourseCatalog({
 
         </div>
       </section>
+
+      <Missions/>
 
       {/* 5. Teachers' Testimonials/Reviews */}
       <section className="py-20 bg-white" id="testemunhos-docentes">

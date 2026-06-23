@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type PageType = 'catalog' | 'game-details' | 'contact' | 'admin';
 
 export interface Game {
@@ -25,6 +27,27 @@ export interface Review {
   author: string;
   role: string;
   avatarInitials: string;
+}
+
+export interface Mission {
+  id: number;
+  title: string;
+  subtitle: string;
+  icon: ReactNode; // <--- Alterado aqui  details: {
+    whatHappened: string;
+    objectives: string[];
+    resources: string[];
+    observations: string;
+    replication: {
+      time: string;
+      materials: string[];
+      steps: string[];
+    };
+    accessibility: string[];
+    teacherTips: string;
+    bnccSkills: string[];
+    contentImages: string[]; // Array dinâmico para as imagens aleatórias
+  };
 }
 
 export interface Founder {
