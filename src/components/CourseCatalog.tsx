@@ -142,7 +142,7 @@ export default function CourseCatalog({
                 </div>
                 <h3 className="font-display font-bold text-lg text-[#1b1c1c]">Identifique Objetivos</h3>
                 <p className="font-sans text-xs md:text-sm text-[#5f5e5e] leading-relaxed">
-                  Defina com precisão as metas de aprendizagem e os desafios peculiares de acessibilidade em curso no seu grupo de estudantes.
+                  Defina com precisão os objetivos de aprendizagem e os desafios peculiares de acessibilidade em curso no seu grupo de estudantes.
                 </p>
               </div>
             </div>
@@ -158,7 +158,7 @@ export default function CourseCatalog({
                 </div>
                 <h3 className="font-display font-bold text-lg text-[#1b1c1c]">Escolha o Jogo</h3>
                 <p className="font-sans text-xs md:text-sm text-[#5f5e5e] leading-relaxed">
-                  Selecione um jogo do nosso catálogo que oferte ricas possibilidades de representação de conteúdo e flexibilidade de controle.
+                  Selecione um jogo que favoreça o envolvimento dos estudantes, oferecendo múltiplas formas de compreender, interagir e demonstrar suas aprendizagens.
                 </p>
               </div>
             </div>
@@ -174,7 +174,7 @@ export default function CourseCatalog({
                 </div>
                 <h3 className="font-display font-bold text-lg text-[#1b1c1c]">Avalie o Impacto</h3>
                 <p className="font-sans text-xs md:text-sm text-[#5f5e5e] leading-relaxed">
-                  Monitore o senso de agência e o progresso curricular do estudante, realinhando as estratégias baseando-se no feedback empírico.
+                  Registre como os estudantes participam das atividades, quais estratégias utilizaram e quais aprendizagens foram mobilizadas.
                 </p>
               </div>
             </div>
@@ -208,7 +208,7 @@ export default function CourseCatalog({
                   <div>
                     <h4 className="font-display font-bold text-sm text-[#1b1c1c]">Engajamento (O "porquê")</h4>
                     <p className="text-xs text-[#5f5e5e] mt-1">
-                      Estimular o interesse, recrutar a motivação intrapessoal e otimizar a autonomia com desafios nivelados ao perfil do aluno.
+                      Criar oportunidades para que todos os estudantes se sintam motivados, pertencentes e protagonistas do próprio processo de aprendizagem.
                     </p>
                   </div>
                 </div>
@@ -221,7 +221,7 @@ export default function CourseCatalog({
                   <div>
                     <h4 className="font-display font-bold text-sm text-[#1b1c1c]">Representação (O "quê")</h4>
                     <p className="text-xs text-[#5f5e5e] mt-1">
-                      Apresentar as informações sob múltiplos formatos complementares: áudio, texto estruturado, ilustrações acessíveis e tátil.
+                      Garantir que os conteúdos sejam apresentados de diferentes formas, favorecendo o acesso, a compreensão e a participação de todos.
                     </p>
                   </div>
                 </div>
@@ -234,7 +234,7 @@ export default function CourseCatalog({
                   <div>
                     <h4 className="font-display font-bold text-sm text-[#1b1c1c]">Ação e Expressão (O "como")</h4>
                     <p className="text-xs text-[#5f5e5e] mt-1">
-                      Habilitar ferramentas alternativas para os estudantes exteriorizarem competências de raciocínio verbal, lógico e cinestésico.
+                       Possibilitar que cada estudante demonstre suas aprendizagens por meio de diferentes linguagens, estratégias e formas de participação.
                     </p>
                   </div>
                 </div>

@@ -5,22 +5,21 @@ export type PageType = 'catalog' | 'game-details' | 'contact' | 'admin';
 export interface Game {
   id: string;
   name: string;
-  platform: string;
   category: string;
+  image: string;
+  alt: string;
   tagBg: string;
   tagColor: string;
   description: string;
-  image: string;
-  alt: string;
-  rating: number;
-  reviewsCount: string;
+  longDescription: string;
+  developer: string;
+  platform: string;
   version: string;
   size: string;
-  languages: string[];
-  developer: string;
-  longDescription: string;
+  languages: string[];  
+  rating: number;
+  reviewsCount: string;
 }
-
 export interface Review {
   id: string;
   text: string;
@@ -32,24 +31,24 @@ export interface Review {
 export interface Mission {
   id: number;
   title: string;
-  details: string;
   subtitle: string;
-  icon: ReactNode; // <--- Alterado aqui  details: {
-  whatHappened: string;
-  objectives: string[];
-  resources: string[];
-  observations: string;
-  replication: {
-    time: string;
-    materials: string[];
-    steps: string[];
+  icon: ReactNode;
+  details: {
+    whatHappened: string;
+    objectives: string[];
+    resources: string[];
+    observations: string;
+    replication: {
+      time: string;
+      materials: string[];
+      steps: string[];
+    };
+    accessibility: string[];
+    teacherTips: string;
+    bnccSkills: string[];
+    contentImages: string[];
   };
-  accessibility: string[];
-  teacherTips: string;
-  bnccSkills: string[];
-  contentImages: string[]; // Array dinâmico para as imagens aleatórias
-  };
-
+}
 
 export interface Founder {
   name: string;

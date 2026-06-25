@@ -58,7 +58,7 @@ export default function JornadaLeitores() {
               
               <section>
                 <h5 className="font-bold text-lg mb-2 text-orange-500">O que aconteceu nesta etapa?</h5>
-                <p className="leading-relaxed">{selectedMission.whatHappened}</p>
+                <p className="leading-relaxed">{selectedMission.details.whatHappened}</p>
               </section>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -66,24 +66,24 @@ export default function JornadaLeitores() {
                   <h5 className="font-bold text-lg mb-2 text-orange-500">Objetivos</h5>
                   <ul className="list-disc pl-5 space-y-1">
                     {/* Adicionado ?. para evitar erros se objectives for undefined */}
-                    {selectedMission.objectives?.map((obj, i) => <li key={i}>{obj}</li>)}
+                    {selectedMission.details.objectives?.map((obj, i) => <li key={i}>{obj}</li>)}
                   </ul>
                 </section>
                 <section>
                   <h5 className="font-bold text-lg mb-2 text-orange-500">Recursos utilizados</h5>
                   <ul className="list-disc pl-5 space-y-1">
                     {/* Adicionado ?. para recursos */}
-                    {selectedMission.resources?.map((res, i) => <li key={i}>{res}</li>)}
+                    {selectedMission.details.resources?.map((res, i) => <li key={i}>{res}</li>)}
                   </ul>
                 </section>
               </div>
 
               {/* Renderização Condicional e Dinâmica de Imagens - Checagem segura de tamanho */}
-              {selectedMission.contentImages && selectedMission.contentImages.length > 0 && (
+              {selectedMission.details.contentImages && selectedMission.details.contentImages.length > 0 && (
                 <section className="my-8">
                    <h5 className="font-bold text-lg mb-4 text-orange-500">Registros da Missão</h5>
                    <div className="flex flex-wrap gap-4">
-                     {selectedMission.contentImages.map((imgSrc, index) => (
+                     {selectedMission.details.contentImages.map((imgSrc, index) => (
                        <img 
                          key={index} 
                          src={imgSrc} 
@@ -97,26 +97,26 @@ export default function JornadaLeitores() {
 
               <section>
                 <h5 className="font-bold text-lg mb-2 text-orange-500">O que observamos?</h5>
-                <p className="leading-relaxed">{selectedMission.observations}</p>
+                <p className="leading-relaxed">{selectedMission.details.observations}</p>
               </section>
 
               {/* Seção de replicação com checagem segura */}
-              {selectedMission.replication && (
+              {selectedMission.details.replication && (
                 <section className="bg-orange-50 p-6 rounded-lg">
                   <h5 className="font-bold text-lg mb-4 text-orange-600">Como replicar esta missão?</h5>
-                  <p><strong>Tempo estimado:</strong> {selectedMission.replication.time}</p>
+                  <p><strong>Tempo estimado:</strong> {selectedMission.details.replication.time}</p>
                   
                   <div className="mt-4">
                     <strong className="block mb-2">Materiais necessários:</strong>
                     <ul className="list-disc pl-5 space-y-1">
-                      {selectedMission.replication.materials?.map((mat, i) => <li key={i}>{mat}</li>)}
+                      {selectedMission.details.replication.materials?.map((mat, i) => <li key={i}>{mat}</li>)}
                     </ul>
                   </div>
                   
                   <div className="mt-4">
                     <strong className="block mb-2">Passo a passo:</strong>
                     <ol className="list-decimal pl-5 space-y-2">
-                      {selectedMission.replication.steps?.map((step, i) => <li key={i}>{step}</li>)}
+                      {selectedMission.details.replication.steps?.map((step, i) => <li key={i}>{step}</li>)}
                     </ol>
                   </div>
                 </section>
@@ -127,21 +127,21 @@ export default function JornadaLeitores() {
                   <h5 className="font-bold text-lg mb-2 text-orange-500">Possibilidades de acessibilização (DUA)</h5>
                   <ul className="list-disc pl-5 space-y-1">
                     {/* Adicionado ?. para acessibilidade */}
-                    {selectedMission.accessibility?.map((acc, i) => <li key={i}>{acc}</li>)}
+                    {selectedMission.details.accessibility?.map((acc, i) => <li key={i}>{acc}</li>)}
                   </ul>
                 </section>
                 <section>
                   <h5 className="font-bold text-lg mb-2 text-orange-500">Habilidades da BNCC</h5>
                   <ul className="list-disc pl-5 space-y-1">
                     {/* Adicionado ?. para habilidades da BNCC */}
-                    {selectedMission.bnccSkills?.map((skill, i) => <li key={i}>{skill}</li>)}
+                    {selectedMission.details.bnccSkills?.map((skill, i) => <li key={i}>{skill}</li>)}
                   </ul>
                 </section>
               </div>
 
               <section className="bg-yellow-50 p-4 border-l-4 border-yellow-400 rounded">
                 <h5 className="font-bold text-lg mb-2 text-yellow-700">Dicas para professores</h5>
-                <p className="leading-relaxed">{selectedMission.teacherTips}</p>
+                <p className="leading-relaxed">{selectedMission.details.teacherTips}</p>
               </section>
 
             </div>
