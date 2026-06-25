@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { ZoomIn, ZoomOut, Contrast, MessageSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-// Declaração para o TypeScript não reclamar do window.VLibras
 declare global {
   interface Window {
     VLibras: any;
   }
 }
 
-// Ensinamos ao React que esses atributos customizados existem
 declare module 'react' {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
     vw?: string;
@@ -59,16 +57,12 @@ export default function AccessibilityControls({
     }
   }, []);
 
-  // ==========================================
-  // FUNÇÃO DO LEITOR DE TELA (WEB SPEECH API)
-  // ==========================================
+
   useEffect(() => {
-    // Se a API não for suportada pelo navegador, não faz nada
     if (!('speechSynthesis' in window)) return;
 
     let timeoutId: NodeJS.Timeout;
 
-    // Função que será chamada ao passar o mouse por cima dos elementos
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       
@@ -86,31 +80,27 @@ export default function AccessibilityControls({
         timeoutId = setTimeout(() => {
           const utterance = new SpeechSynthesisUtterance(textToRead);
           utterance.lang = 'pt-BR'; // Força o idioma para português
-          utterance.rate = 1.2; // Velocidade da fala (1 é o normal, 1.2 é um pouco mais dinâmico)
-          utterance.pitch = 1.0; // Tom da voz
+          utterance.rate = 0.8; // Velocidade da fala (1 é o normal, 1.2 é um pouco mais dinâmico)
+          utterance.pitch = 1.5; // Tom da voz
           
           window.speechSynthesis.speak(utterance);
-        }, 300); // 300ms de atraso
+        }, 200);
       }
     };
 
     if (spokenAssistant) {
-      // Adiciona o evento de escuta na página inteira
       document.addEventListener('mouseover', handleMouseOver);
     } else {
-      // Se o usuário desligar, cala o assistente e remove o evento
       window.speechSynthesis.cancel();
       document.removeEventListener('mouseover', handleMouseOver);
     }
 
-    // Cleanup caso o componente seja desmontado
     return () => {
       clearTimeout(timeoutId);
       window.speechSynthesis.cancel();
       document.removeEventListener('mouseover', handleMouseOver);
     };
   }, [spokenAssistant]);
-  // ==========================================
 
   const handleIncreaseFont = () => {
     setFontSizeScale((prev) => Math.min(prev + 0.1, 1.4));

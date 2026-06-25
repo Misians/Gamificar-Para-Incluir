@@ -118,7 +118,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
       {/* Under footer */}
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-8 border-t border-brand-border flex flex-col sm:flex-row justify-between items-center gap-4">
         <p className="font-sans text-xs text-[#5f5e5e]" id="copyright-notice">
-          © 2026 GAMIFICAR PARA INCLUIR Platform. Todos os direitos reservados.
+          © 2026 GAMIFICAR PARA INCLUIR Platform. Publicado sob licença Creative Commons, permitindo uso e compartilhamento gratuito.
         </p>
         <div className="flex gap-4 items-center">
           <button 
