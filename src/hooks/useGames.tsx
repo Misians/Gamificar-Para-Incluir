@@ -1,33 +1,41 @@
+// src/hooks/useGames.ts
 import { useState, useEffect } from 'react';
 import { Game } from '../types';
-import { GAMES_DATA } from '../data'; // Ajuste o caminho de onde está seu GAMES_DATA
+
+const API_URL = 'https://backend-gamificar-para-incluir.onrender.com/api/games/';
 
 export function useGames() {
-  // Inicializa o estado buscando do localStorage ou do arquivo estático
-  const [games, setGames] = useState<Game[]>(() => {
-    const savedGames = localStorage.getItem('@InclusiveLearning:games');
-    if (savedGames) {
-      return JSON.parse(savedGames);
-    }
-    return GAMES_DATA;
-  });
+  const [games, setGames] = useState<Game[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Toda vez que a lista de jogos mudar, salva no localStorage
+  // Busca os jogos quando o site carrega
   useEffect(() => {
-    localStorage.setItem('@InclusiveLearning:games', JSON.stringify(games));
-  }, [games]);
+    fetchGames();
+  }, []);
 
-  const addGame = (newGame: Game) => {
-    setGames([...games, { ...newGame, id: crypto.randomUUID() }]); // Gera um ID único
+  const fetchGames = async () => {
+    try {
+      setLoading(true);
+      
+      // Faz o GET na rota pública do Django
+      const response = await fetch(API_URL);
+      
+      if (!response.ok) {
+        throw new Error('Falha ao carregar os jogos do servidor.');
+      }
+
+      const data = await response.json();
+      setGames(data);
+    } catch (err: any) {
+      console.error("Erro na API:", err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const updateGame = (updatedGame: Game) => {
-    setGames(games.map(g => g.id === updatedGame.id ? updatedGame : g));
-  };
-
-  const removeGame = (id: string) => {
-    setGames(games.filter(g => g.id !== id));
-  };
-
-  return { games, addGame, updateGame, removeGame };
+  // Retornamos os jogos, e também o estado de loading e erro caso você queira 
+  // colocar um "Carregando..." no seu App.tsx no futuro.
+  return { games, loading, error, refetchGames: fetchGames };
 }
