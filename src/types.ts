@@ -14,6 +14,7 @@ export interface Game {
   longDescription: string;
   developer: string;
   platform: string;
+  link: string;
   version: string;
   size: string;
   languages: string[];  
