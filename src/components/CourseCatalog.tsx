@@ -30,7 +30,7 @@ export default function CourseCatalog({
     return matchesSearch && game.category.toLowerCase() === activeCategory.toLowerCase();
   });
 
-  const categories = ['todos', 'alfabetização', 'inclusivo', 'colaborativo', 'linguagens'];
+  const categories = ['todos', 'alfabetização', 'inclusivo', 'colaborativo', 'linguagens', 'letramento'];
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);

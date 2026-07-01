@@ -1,7 +1,9 @@
 import React from 'react';
 import { School, Globe, Share2, Compass, Heart } from 'lucide-react';
 import { PageType } from '../types';
-
+import logoTibau from '../assets/logos/logo.png';
+import profei from '../assets/logos/profei.jpeg';
+import capeslogo from '../assets/logos/capes.png';
 interface FooterProps {
   setCurrentPage: (page: PageType) => void;
 }
@@ -28,9 +30,10 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             Inovando para criar caminhos de aprendizagem acessíveis, interativos e plenamente inclusivos para todos os perfis de alunos, baseado no Desenho Universal para a Aprendizagem (DUA).
           </p>
 
-          {/* Partnership badges */}
-          <div className="space-y-2">
+          {/* Partnership badges & Logos */}
+          <div className="space-y-4 pt-2">
             <p className="text-[10px] uppercase font-bold tracking-wider text-[#5f5e5e]">Realização e Apoio</p>
+            
             <div className="flex flex-wrap gap-2">
               <div className="h-9 px-3 bg-white text-[#5f5e5e] text-[11px] font-bold rounded-lg border border-brand-border flex items-center justify-center shadow-xs">
                 UERN
@@ -44,12 +47,29 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               <div className="h-9 px-3 bg-white text-[#5f5e5e] text-[11px] font-bold rounded-lg border border-brand-border flex items-center justify-center shadow-xs">
                 PROFEI
               </div>
+              <div className="h-9 px-3 bg-white text-[#5f5e5e] text-[11px] font-bold rounded-lg border border-brand-border flex items-center justify-center shadow-xs">
+                CNPQ
+              </div>
             </div>
+
+            {/* Espaço para as 3 Logos Lado a Lado */}
+            <div className="flex items-center gap-4 mt-4">
+              <div className="h-18 px-3 flex items-center justify-center">
+                <img src={capeslogo} alt="Logo 1" className="max-h-10 w-auto object-contain" />
+              </div>
+              <div className="h-18 px-3 flex items-center justify-center">
+                <img src={logoTibau} alt="Logo 2" className="max-h-10 w-auto object-contain" />
+              </div>
+              <div className="h-24 px-3 flex items-center justify-center">
+                <img src={profei} alt="Logo 3" className="max-h-10 w-auto object-contain" />
+              </div>
+            </div>
+
           </div>
         </div>
 
         {/* Footer Navigation columns */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 md:gap-16">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 md:gap-16 mt-4 md:mt-0">
           <div className="space-y-4">
             <h5 className="font-display font-bold text-sm text-[#1b1c1c] tracking-tight">Plataforma</h5>
             <nav className="flex flex-col gap-2.5">
@@ -121,15 +141,6 @@ export default function Footer({ setCurrentPage }: FooterProps) {
           © 2026 GAMIFICAR PARA INCLUIR Platform. Publicado sob licença Creative Commons, permitindo uso e compartilhamento gratuito.
         </p>
         <div className="flex gap-4 items-center">
-          <button 
-            className="flex items-center gap-1.5 text-xs text-[#5f5e5e] hover:text-brand-primary-container"
-            title="Compartilhar"
-            onClick={() => alert('Obrigado por compartilhar o Inclusive Learning!')}
-            id="share-icon-btn"
-          >
-            <Share2 size={14} />
-            <span>Compartilhar</span>
-          </button>
           <div className="w-px h-4 bg-gray-300" />
           <div className="flex items-center gap-1 text-[11px] text-gray-400">
             <span>Desenvolvido por </span>
