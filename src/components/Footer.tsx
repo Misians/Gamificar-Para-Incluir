@@ -4,6 +4,8 @@ import { PageType } from '../types';
 import logoTibau from '../assets/logos/logo.png';
 import profei from '../assets/logos/profei.jpeg';
 import capeslogo from '../assets/logos/capes.png';
+import cnpq from '../assets/logos/CNPQ.png';
+
 interface FooterProps {
   setCurrentPage: (page: PageType) => void;
 }
@@ -62,6 +64,9 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               </div>
               <div className="h-24 px-3 flex items-center justify-center">
                 <img src={profei} alt="Logo 3" className="max-h-10 w-auto object-contain" />
+              </div>
+              <div className="h-24 px-3 flex items-center justify-center">
+                <img src={cnpq} alt="Logo 3" className="max-h-10 w-auto object-contain" />
               </div>
             </div>
 
