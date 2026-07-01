@@ -122,12 +122,21 @@ export default function AdminPanel() {
                   onChange={e => handleChange('name', e.target.value)}
                   className="border border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-[#ff8c00] outline-none"
                 />
-                <input 
-                  type="text" placeholder="Categoria (ex: Inclusivo)" 
-                  value={editingGame.category || ''} 
+                
+                {/* SELECT DE CATEGORIA ADICIONADO AQUI */}
+                <select
+                  value={editingGame.category || ''}
                   onChange={e => handleChange('category', e.target.value)}
-                  className="border border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-[#ff8c00] outline-none"
-                />
+                  className="border border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-[#ff8c00] outline-none bg-white text-gray-700"
+                >
+                  <option value="" disabled>Selecione uma Categoria</option>
+                  <option value="Alfabetização">Alfabetização</option>
+                  <option value="Inclusivo">Inclusivo</option>
+                  <option value="Colaborativo">Colaborativo</option>
+                  <option value="Linguagens">Linguagens</option>
+                  <option value="Letramento">Letramento</option>
+                </select>
+
                 <input 
                   type="text" placeholder="Desenvolvedor (ex: Instituto Alfa)" 
                   value={editingGame.developer || ''} 
@@ -145,50 +154,58 @@ export default function AdminPanel() {
                   type="text" placeholder="Plataforma (ex: Web, Android)" 
                   value={editingGame.platform || ''} 
                   onChange={e => handleChange('platform', e.target.value)}
-                  className="border border-gray-300 p-3 rounded-lg w-full text-sm"
+                  className="border border-gray-300 p-3 rounded-lg w-full text-sm focus:ring-2 focus:ring-[#ff8c00] outline-none"
                 />
                 <input 
                   type="text" placeholder="Tamanho (ex: 45 MB)" 
                   value={editingGame.size || ''} 
                   onChange={e => handleChange('size', e.target.value)}
-                  className="border border-gray-300 p-3 rounded-lg w-full text-sm"
+                  className="border border-gray-300 p-3 rounded-lg w-full text-sm focus:ring-2 focus:ring-[#ff8c00] outline-none"
                 />
                 <input 
                   type="text" placeholder="Versão (ex: 1.0.2)" 
                   value={editingGame.version || ''} 
                   onChange={e => handleChange('version', e.target.value)}
-                  className="border border-gray-300 p-3 rounded-lg w-full text-sm"
+                  className="border border-gray-300 p-3 rounded-lg w-full text-sm focus:ring-2 focus:ring-[#ff8c00] outline-none"
                 />
                 <input 
                   type="text" placeholder="Idiomas (separados por vírgula)" 
                   value={editingGame.languages?.join(', ') || ''} 
                   onChange={e => handleChange('languages', e.target.value.split(',').map(s => s.trim()))}
-                  className="border border-gray-300 p-3 rounded-lg w-full text-sm"
+                  className="border border-gray-300 p-3 rounded-lg w-full text-sm focus:ring-2 focus:ring-[#ff8c00] outline-none"
                 />
               </div>
             </div>
 
-            {/* Bloco 3: Mídia e Avaliação */}
+            {/* Bloco 3: Mídia, Links e Avaliação */}
             <div className="md:col-span-3 space-y-4">
-              <h3 className="font-bold text-sm text-[#ff8c00] uppercase tracking-wider mt-2">Mídia e Estatísticas</h3>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <h3 className="font-bold text-sm text-[#ff8c00] uppercase tracking-wider mt-2">Mídia, Links e Estatísticas</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input 
                   type="text" placeholder="URL da Capa (Imagem)" 
                   value={editingGame.image || ''} 
                   onChange={e => handleChange('image', e.target.value)}
-                  className="border border-gray-300 p-3 rounded-lg w-full md:col-span-2 text-sm"
+                  className="border border-gray-300 p-3 rounded-lg w-full text-sm focus:ring-2 focus:ring-[#ff8c00] outline-none"
                 />
+                <input 
+                  type="text" placeholder="Link do Jogo (URL da página/download)" 
+                  value={editingGame.link || ''} 
+                  onChange={e => handleChange('link', e.target.value)}
+                  className="border border-gray-300 p-3 rounded-lg w-full text-sm focus:ring-2 focus:ring-[#ff8c00] outline-none"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
                 <input 
                   type="number" step="0.1" max="5" placeholder="Nota (ex: 4.8)" 
                   value={editingGame.rating || ''} 
                   onChange={e => handleChange('rating', parseFloat(e.target.value))}
-                  className="border border-gray-300 p-3 rounded-lg w-full text-sm"
+                  className="border border-gray-300 p-3 rounded-lg w-full text-sm focus:ring-2 focus:ring-[#ff8c00] outline-none"
                 />
                 <input 
                   type="text" placeholder="Qtd. Avaliações (ex: +2k)" 
                   value={editingGame.reviewsCount || ''} 
                   onChange={e => handleChange('reviewsCount', e.target.value)}
-                  className="border border-gray-300 p-3 rounded-lg w-full text-sm"
+                  className="border border-gray-300 p-3 rounded-lg w-full text-sm focus:ring-2 focus:ring-[#ff8c00] outline-none"
                 />
               </div>
             </div>
