@@ -7,7 +7,10 @@ export default function JornadaLeitores() {
 
   return (
     <div className="p-8 font-sans">
-      <h2 className="text-2xl font-bold text-orange-600 mb-6">MISSÕES LEITURA A JORNADA DOS SUPER LEITORES</h2>
+      <h2 className="text-2xl font-bold text-orange-600 mb-2">MISSÕES LEITURA A JORNADA DOS SUPER LEITORES</h2>
+      <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+        As missões fazem parte de uma jornada de aprendizagem baseada em gamificação e nos princípios do Desenho Universal para a Aprendizagem (DUA), promovendo desafios, diferentes formas de participação e uma experiência inclusiva, envolvente e significativa para todos.
+      </p>
       
       {/* Container da Trilha (Timeline) */}
       <div className="flex items-center justify-between overflow-x-auto">
