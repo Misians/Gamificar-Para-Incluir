@@ -37,6 +37,18 @@ export default function CourseCatalog({
     el?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Carrega todos os PDFs da pasta assets/documentos/pdf para exibir como links de download
+  const pdfModules = import.meta.glob('../assets/documentos/pdf/*.pdf', { as: 'url', eager: true }) as Record<string, string>;
+  const pdfList = Object.entries(pdfModules).map(([path, url]) => ({
+    name: path.split('/').pop()?.replace('.pdf', '') || path,
+    url,
+  }));
+
+  const formatFileName = (raw: string) =>
+    raw
+      .replace(/[-_]+/g, ' ')
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+
   return (
     <div className="animate-fade-in" id="course-catalog-page">
       
@@ -183,6 +195,43 @@ export default function CourseCatalog({
 
         </div>
       </section>
+
+      <section>
+        <div className="sessao-documento">
+          <div className="max-w-7xl mx-auto px-6 md:px-10 py-12">
+            <h2 className="font-display text-3xl font-bold text-[#1b1c1c] mb-4">Materiais Complementares de Aprofundamento Teórico</h2>
+            <p className="text-sm md:text-base text-[#5f5e5e] mb-6">
+              Baixe nossos documentos guias e descubra como implementar a metodologia universal em sua prática pedagógica.
+            </p>
+
+            <div className="mt-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {pdfList.map((p) => (
+                  <div key={p.url} className="flex items-center gap-4 p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-[#fff2e6] text-[#ff8c00] flex-shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden>
+                        <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3v5h5" />
+                        <path d="M8 13h8v2H8zM8 17h5v2H8z" />
+                      </svg>
+                    </div>
+
+                    <div className="flex-1 min-w-0">
+                      <div className="font-semibold text-sm text-[#1b1c1c] leading-tight truncate">{formatFileName(p.name)}</div>
+                      <div className="text-xs text-gray-500 mt-1">PDF • Guia</div>
+                    </div>
+
+                    <div className="flex gap-2">
+                      <a href={p.url} download className="px-3 py-2 bg-[#ff8c00] hover:bg-[#e06f00] text-white text-sm font-bold rounded-lg shadow-sm transition">Baixar</a>
+                      <a href={p.url} target="_blank" rel="noopener noreferrer" className="px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#5f5e5e] hover:bg-gray-50 transition">Abrir</a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* 3. DUA 3 Pillars Section */}
       <section className="py-20 bg-white bg-pattern-dots" id="dua-pillars">

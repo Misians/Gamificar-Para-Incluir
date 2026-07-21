@@ -1,9 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Mission } from '../types'; // Importe os dados e tipos
 import { missionsData } from '../mockData.tsx';
 
 export default function JornadaLeitores() {
   const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
+  const [viewerImage, setViewerImage] = useState<string | null>(null);
+
+  // Bloqueia o scroll do body enquanto o modal da missão estiver aberto
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    if (selectedMission) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = prev;
+    }
+    return () => { document.body.style.overflow = prev; };
+  }, [selectedMission]);
+
+  // Tecla Escape: fecha primeiro o visualizador, depois o modal
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (viewerImage) setViewerImage(null);
+        else if (selectedMission) setSelectedMission(null);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [viewerImage, selectedMission]);
 
   return (
     <div className="p-8 font-sans">
@@ -39,7 +63,10 @@ export default function JornadaLeitores() {
 
       {/* Modal / Box de Detalhes */}
       {selectedMission && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          onClick={(e) => { if (e.target === e.currentTarget) setSelectedMission(null); }}
+        >
           <div className="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8 relative">
             
             {/* Botão de Fechar */}
@@ -81,22 +108,56 @@ export default function JornadaLeitores() {
                 </section>
               </div>
 
-              {/* Renderização Condicional e Dinâmica de Imagens - Checagem segura de tamanho */}
-              {selectedMission.details.contentImages && selectedMission.details.contentImages.length > 0 && (
-                <section className="my-8">
-                   <h5 className="font-bold text-lg mb-4 text-orange-500">Registros da Missão</h5>
-                   <div className="flex flex-wrap gap-4">
-                     {selectedMission.details.contentImages.map((imgSrc, index) => (
-                       <img 
-                         key={index} 
-                         src={imgSrc} 
-                         alt={`Registro ${index + 1}`} 
-                         className="rounded-lg shadow-sm w-full md:w-[48%] object-cover h-48"
-                       />
-                     ))}
-                   </div>
-                </section>
-              )}
+                {/* Renderização Condicional e Dinâmica de Imagens com possibilidade de expandir e baixar */}
+                {selectedMission.details.contentImages && selectedMission.details.contentImages.length > 0 && (
+                  <section className="my-8">
+                     <h5 className="font-bold text-lg mb-4 text-orange-500">Registros da Missão</h5>
+                     <div className="flex flex-wrap gap-4">
+                       {selectedMission.details.contentImages.map((imgSrc, index) => (
+                         <button
+                           key={index}
+                           type="button"
+                           onClick={() => setViewerImage(imgSrc)}
+                           className="rounded-lg overflow-hidden p-0 border-0 bg-transparent cursor-pointer"
+                           aria-label={`Abrir imagem ${index + 1}`}
+                         >
+                           <img
+                             src={imgSrc}
+                             alt={`Registro ${index + 1}`}
+                             className="rounded-lg shadow-sm object-contain"
+                             style={{ width: 320, height: 'auto' }}
+                           />
+                         </button>
+                       ))}
+                     </div>
+                  </section>
+                )}
+
+                {/* Visualizador de imagem (lightbox) */}
+                {viewerImage && (
+                  <div
+                    className="fixed inset-0 z-60 bg-black bg-opacity-80 flex items-center justify-center p-6"
+                    onClick={(e) => { if (e.target === e.currentTarget) setViewerImage(null); }}
+                  >
+                    <div className="relative max-w-[90vw] max-h-[90vh] w-full flex flex-col items-center gap-4">
+                      <button
+                        type="button"
+                        onClick={() => setViewerImage(null)}
+                        className="absolute top-2 right-2 text-white bg-black/30 rounded-full w-10 h-10 flex items-center justify-center"
+                        aria-label="Fechar visualizador"
+                      >
+                        ×
+                      </button>
+
+                      <img src={viewerImage} alt="Visualização" className="max-w-full max-h-[80vh] object-contain rounded-lg shadow-lg" />
+
+                      <div className="mt-2 flex gap-2">
+                        <a href={viewerImage} download className="px-4 py-2 bg-white text-[#ff8c00] font-bold rounded-lg shadow">Baixar imagem</a>
+                        <a href={viewerImage} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-transparent border border-white text-white rounded-lg">Abrir original</a>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
               <section>
                 <h5 className="font-bold text-lg mb-2 text-orange-500">O que observamos?</h5>

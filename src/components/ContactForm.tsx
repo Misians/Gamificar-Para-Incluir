@@ -18,9 +18,10 @@ export default function ContactForm() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.nome || !formData.email || !formData.mensagem) {
+
+    if (!formData.nome.trim() || !formData.email.trim() || !formData.mensagem.trim()) {
       setSubmitStatus('error');
       return;
     }
@@ -28,18 +29,36 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // Simulate server side request response
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const formPayload = new FormData();
+      formPayload.append('name', formData.nome.trim());
+      formPayload.append('email', formData.email.trim());
+      formPayload.append('subject', `Contato - ${formData.assunto}`);
+      formPayload.append('message', formData.mensagem.trim());
+
+      const response = await fetch('https://formsubmit.co/ajax/contatoaline@gmail.com', {
+        method: 'POST',
+        body: formPayload,
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha ao enviar mensagem');
+      }
+
       setSubmitStatus('success');
-      // Reset form variables
       setFormData({
         nome: '',
         email: '',
         assunto: 'Suporte Técnico',
         mensagem: '',
       });
-    }, 1800);
+    } catch (error) {
+      setSubmitStatus('error');
+      const mailtoLink = `mailto:contatoaline@gmail.com?subject=${encodeURIComponent(`Contato - ${formData.assunto}`)}&body=${encodeURIComponent(`Nome: ${formData.nome.trim()}\nE-mail: ${formData.email.trim()}\n\nMensagem:\n${formData.mensagem.trim()}`)}`;
+      window.location.href = mailtoLink;
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

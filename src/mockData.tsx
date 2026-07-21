@@ -8,6 +8,10 @@ import {
 const iconClass = "text-orange-600";
 const iconSize = 40;
 
+// Importa as imagens da pasta de recursos da missão 1 como URLs
+const missao1Modules = import.meta.glob('./assets/documentos/missao1/*.{jpg,jpeg,png}', { as: 'url', eager: true }) as Record<string, string>;
+const missao1Images = Object.values(missao1Modules || {});
+
 export const missionsData: Mission[] = [
   {
     id: 1,
@@ -60,14 +64,11 @@ export const missionsData: Mission[] = [
       ],
       teacherTips: "Valorize todas as formas de participação. Algumas crianças demonstram interesse falando, enquanto outras observam, apontam, manipulam materiais ou acompanham os colegas.",
       bnccSkills: [
-        "EF01LP04 – Distinguir letras do alfabeto de outros sinais gráficos.",
-        "EF01LP05 – Reconhecer o sistema de escrita alfabética como representação dos sons da fala.",
-        "EF01LP10 – Nomear as letras do alfabeto e recitá-lo na ordem das letras."
+        "EF01LP04 - Distinguir letras do alfabeto de outros sinais gráficos.",
+        "EF01LP05 - Reconhecer o sistema de escrita alfabética como representação dos sons da fala.",
+        "EF01LP10 - Nomear as letras do alfabeto e recitá-lo na ordem das letras."
       ],
-      contentImages: [
-        "https://via.placeholder.com/300x200?text=Imagem+Atividade+1",
-        "https://via.placeholder.com/300x200?text=Imagem+Atividade+2"
-      ]
+      contentImages: missao1Images
     }
   },
   {
