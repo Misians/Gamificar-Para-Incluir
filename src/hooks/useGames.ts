@@ -1,41 +1,39 @@
 // src/hooks/useGames.ts
 import { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
 import { Game } from '../types';
-
-const API_URL = 'https://backend-gamificar-para-incluir.onrender.com/api/games/';
+import { db } from '../firebase';
 
 export function useGames() {
   const [games, setGames] = useState<Game[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Busca os jogos quando o site carrega
   useEffect(() => {
     fetchGames();
   }, []);
+
 
   const fetchGames = async () => {
     try {
       setLoading(true);
       
-      // Faz o GET na rota pública do Django
-      const response = await fetch(API_URL);
+      // Faz a busca na coleção "games" do Firestore
+      const querySnapshot = await getDocs(collection(db, 'games'));
       
-      if (!response.ok) {
-        throw new Error('Falha ao carregar os jogos do servidor.');
-      }
+      const data = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      })) as Game[];
 
-      const data = await response.json();
       setGames(data);
     } catch (err: any) {
-      console.error("Erro na API:", err);
+      console.error("Erro no Firebase:", err);
       setError(err.message);
     } finally {
       setLoading(false);
     }
   };
 
-  // Retornamos os jogos, e também o estado de loading e erro caso você queira 
-  // colocar um "Carregando..." no seu App.tsx no futuro.
   return { games, loading, error, refetchGames: fetchGames };
 }

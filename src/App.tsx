@@ -13,6 +13,7 @@ import GameDetails from './components/GameDetails';
 // Novos Componentes e Contextos para Autenticação/Backend
 import AdminPanel from './pages/adminPanel';
 import Login from './pages/Login';
+import RegisterHidden from './pages/RegisterHidden';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
 
@@ -50,8 +51,10 @@ function AppContent() {
     navigate(`/game/${gameId}`);
   };
 
-  // Oculta o Header, Footer e botões flutuantes na tela de Login
+  // Oculta o Header, Footer e botões flutuantes nas telas de Login e cadastro oculto
   const isLoginPage = location.pathname === '/login';
+  const isHiddenRegisterPage = location.pathname === '/cadastro-secreto-admin-2026';
+  const hideChrome = isLoginPage || isHiddenRegisterPage;
 
   return (
     <div 
@@ -64,20 +67,19 @@ function AppContent() {
       id="inclusive-app-root"
     >
        
-      {/* Esconde o header na tela de login */}
-      {!isLoginPage && (
+      {/* Esconde o header nas telas de login e cadastro oculto */}
+      {!hideChrome && (
         <Header 
           currentPage={location.pathname === '/' ? 'catalog' : location.pathname.replace('/', '') as any}
           setCurrentPage={handleSetCurrentPage}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
-          highContrast={highContrast}
           onSetGameId={handleSelectGame}
         />
       )}
 
       {/* Floating vertical accessibility sidebar */}
-      {!isLoginPage && (
+      {!hideChrome && (
         <AccessibilityControls 
           fontSizeScale={fontSizeScale}
           setFontSizeScale={setFontSizeScale}
@@ -87,7 +89,7 @@ function AppContent() {
       )}
 
       {/* Botão de Acesso ao Admin */}
-      {!isLoginPage && (
+      {!hideChrome && (
         <button
           onClick={() => navigate(location.pathname === '/admin' ? '/' : '/admin')}
           className={`fixed bottom-6 left-6 z-50 px-4 py-2 rounded-full font-bold shadow-lg transition-all ${
@@ -134,10 +136,19 @@ function AppContent() {
               </motion.div>
             } />
 
-            {/* Rota de Login (Nova) */}
+            {/* Rota de Login */}
             <Route path="/login" element={
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                 <Login />
+              </motion.div>
+            } />
+
+            {/* Rota oculta de cadastro de administrador.
+                Protegida por um código secreto (VITE_ADMIN_SIGNUP_CODE), não apenas pela URL.
+                Recomendo remover ou desativar essa rota depois de criar as contas de admin necessárias. */}
+            <Route path="/cadastro-secreto-admin-2026" element={
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                <RegisterHidden />
               </motion.div>
             } />
 
@@ -159,7 +170,7 @@ function AppContent() {
       </main>
 
       {/* Footer Navigation Columns */}
-      {!isLoginPage && <Footer setCurrentPage={handleSetCurrentPage} />}
+      {!hideChrome && <Footer setCurrentPage={handleSetCurrentPage} />}
 
     </div>
   );
