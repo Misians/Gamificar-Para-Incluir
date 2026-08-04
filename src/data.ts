@@ -2,82 +2,8 @@ import { Game, Review, Founder } from './types';
 import aline from './assets/team/aline.jpeg';
 import raul from './assets/team/raul.jpeg';
 import francisca from './assets/team/francisca.jpeg';
-
-
-export const GAMES_DATA: Game[] = [
-  {
-    id: 'eduedu',
-    name: 'EduEdu',
-    platform: 'Android & iOS',
-    category: 'Alfabetização',
-    tagBg: 'bg-[#fffdcc3] text-[#2f1500]',
-    tagColor: 'text-[#ff8c00]',
-    description: 'Ferramenta completa para auxiliar crianças no processo de alfabetização de forma lúdica.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDsc_rB-6E7i59-h2rea2wtIrUwm4ojDhHA8FLw4qXR7YL84btQ2aeTQdEMyyOEY4JNlNAmc5XCQSiRBbnOC8qmt66PtIIuPl12oPmnE4TzjH_PXxFruHb8pyBu5Y2LWM15s6tXhoFeJfHV5QDs84CK-g4e_doVAZtRActAdn6NtA-yj1Wt_4jDOUIOh079VFYZwuEq_OG6Fi_W63iS1tvYkVhPH75W7l3uljygTI2ip_2SQ8OWY9HpSbBEb4y6XPMXN9EhD5sibN6z',
-    alt: 'Ilustração do ambiente de floresta mágica do EduEdu',
-    rating: 4.8,
-    reviewsCount: '1.2k avaliações',
-    version: 'v4.2.1 (Jan 2024)',
-    size: '128 MB',
-    languages: ['Português', 'Inglês'],
-    developer: 'Instituto ABCD',
-    longDescription: 'O EduEdu é uma ferramenta pedagógica completa desenvolvida para auxiliar crianças no processo de alfabetização. Através de uma jornada gamificada, os alunos exploram fonemas, grafemas e a construção de palavras de forma lúdica e estruturada. O aplicativo adapta o nível de dificuldade com base no desempenho real da criança, garantindo que o aprendizado seja sempre desafiador, mas nunca frustrante.'
-  },
-  {
-    id: 'minecraft',
-    name: 'Minecraft: Edição Educativa',
-    platform: 'PC & Tablet',
-    category: 'Inclusivo',
-    tagBg: 'bg-[#ffdcc3] text-[#2f1500]',
-    tagColor: 'text-[#904d00]',
-    description: 'Plataforma baseada em blocos e exploração 3D para exercitar a criatividade e o trabalho em equipe.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuArXTlYUV1ExK_G789-3UDVkOvVD-8Js3C6nMIggU9w9e3IJkIpnGweFL4y5jH1uJO00RXt8e77rRTeJvP0MXS-HrqA20MONmQVKYBFg0kgYwY-3s6jMqAgkt3GZkkBTmtkzmxAm8vbstUdIZeJmeU7L2Hj-htECTavRjjJ1WDmMdRR616sgZ-naOEcoYdKPMSB7yQr2aqJjmzXXPpHfnDrCDDb_nj9oSo8BaISC80l-3aGLoOq2SChiwDL1xSV0VXdOuiof_7B8JPQ',
-    alt: 'Imagem com blocos em 3D do Minecraft Education',
-    rating: 4.9,
-    reviewsCount: '3.4k avaliações',
-    version: 'v1.20.12 (Mar 2025)',
-    size: '350 MB',
-    languages: ['Português', 'Inglês', 'Espanhol', 'Francês'],
-    developer: 'Mojang Studios',
-    longDescription: 'Minecraft: Education Edition é uma plataforma de aprendizagem baseada em jogos que oferece aos educadores uma maneira transformadora de engajar os alunos usando o Minecraft e fortalecer suas habilidades de colaboração, resolução de problemas e comunicação digital.'
-  },
-  {
-    id: 'roblox',
-    name: 'Roblox: Criando Mundos',
-    platform: 'iOS & Android',
-    category: 'Colaborativo',
-    tagBg: 'bg-[#ffdcc3] text-[#2f1500]',
-    tagColor: 'text-[#904d00]',
-    description: 'Estúdio de programação e design para cocriação de experiências virtuais inclusivas em 3D.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCRKNREm8LG-02Y3jx1RcZDiKfKgEJ2ZStOEBfKAlvdwwQp74cKGHcgXN8hWrTG7_ANzuN2O3l_MqjF9TGiixx-zhj7QmLjbR1SC_D3uVwKkBJAIfNYasHUmt9u494wglCZcSZ1K-2XEU737N-YFHxCXBSwNZBi-x2ZSjFxWSQP814ST7-MOsWokiUFYlgiA6FxX2gWcPfKjY7L-_vQ7hi6FbvEs0R9k0A0QBaAW5JrwiIiCLAJ0gXy0lhi1ue2sYka6MR4ZwAaDcl4',
-    alt: 'Visual do laboratório tecnológico do Roblox Education',
-    rating: 4.6,
-    reviewsCount: '2.1k avaliações',
-    version: 'v2.610.0 (Fev 2025)',
-    size: '145 MB',
-    languages: ['Português', 'Inglês', 'Espanhol'],
-    developer: 'Roblox Corporation',
-    longDescription: 'Roblox Education empodera alunos e educadores a criarem mundos 3D imersivos. Ao apoiar o raciocínio computacional, design de jogos cooperativos e habilidades de resolução de problemas, os alunos aprendem conceitos fundamentais de lógica trabalhando juntos no mesmo ecossistema.'
-  },
-  {
-    id: 'duolingo',
-    name: 'Duolingo for Schools',
-    platform: 'Android & iOS',
-    category: 'Linguagens',
-    tagBg: 'bg-[#ffdcc3] text-[#2f1500]',
-    tagColor: 'text-[#ff8c00]',
-    description: 'Ensino de idiomas através de uma trilha gamificada altamente motivadora e adaptativa para escolas.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBc5AQ_0SEBBIPCGGNbOug63tSVW2R3TzGRY1ySQTbon2xU5qfnHubq-5G9bhdQGIOnMhVGUT6VFuEJ0leBbvg3qL_ERVOvOD63PgKK-hHSn3wK4LiT_1h6-_t8aVMzmAIk0dDDmyU9fftHmoYL5wpN7-wt6wwRzAEqPOmW_vanLpRZiYo26ukcU-JMnwf42Sv7egrBOwOj4uJbNz8fXpfp2l02d5bILs-5eA2rIgPgo5vrUnAp_z4mqRPy091BgxOk7WvvpgzDAvCb',
-    alt: 'Celular exibindo interface do Duolingo com a carismática coruja Duo',
-    rating: 4.8,
-    reviewsCount: '5k avaliações',
-    version: 'v5.132.4 (Abril 2025)',
-    size: '80 MB',
-    languages: ['Português', 'Inglês', 'Espanhol', 'Italiano', 'Alemão'],
-    developer: 'Duolingo Inc.',
-    longDescription: 'Duolingo for Schools traz toda a eficácia da gamificação adaptativa do Duolingo clássico de forma estruturada para salas de aula do mundo todo. Os professores podem gerar caminhos específicos para os alunos e acompanhar diariamente a proficiência de leitura, escuta e fala.'
-  }
-];
+import misia from './assets/team/misia.jpeg';
+import Alan from './assets/team/alan.jpeg';
 
 export const REVIEWS_DATA: Review[] = [
   {
@@ -126,6 +52,22 @@ export const FOUNDERS_DATA: Founder[] = [
     avatar: raul,
     Linkedin: '',
     lattesLink:'http://lattes.cnpq.br/7719675103212706',
+    bio: 'Arquiteto de jogos e mestre em designs lúdicos voltados para engajamento e inclusão.'
+  },
+  {
+    name: 'Artemísia Kimberlly Marques da Silva',
+    role: 'Mestranda pelo PPgCC pela UERN e UFERSA responsável pelo desenvolvimento web do projeto',
+    avatar: misia,
+    Linkedin: 'https://br.linkedin.com/in/artem%C3%ADsia-kimberlly-87322a1b7',
+    lattesLink:'http://lattes.cnpq.br/7854607386223805',
+    bio: 'Desenvolvedora web com foco em acessibilidade e experiência do usuário, buscando soluções inclusivas para todos.'
+  },
+  {
+    name: 'Dr. Alan de Oliveira Santana',
+    role: 'Professor co-orientador do projeto pela Universidade do Estado do Rio Grande do Norte (UERN)',
+    avatar: Alan,
+    Linkedin: '',
+    lattesLink: 'http://lattes.cnpq.br/7875175032115307',
     bio: 'Arquiteto de jogos e mestre em designs lúdicos voltados para engajamento e inclusão.'
   }
 ];
