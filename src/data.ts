@@ -50,7 +50,7 @@ export const FOUNDERS_DATA: Founder[] = [
     name: 'Dr. Raul Benites Paradeda',
     role: 'Professor co-orientador do projeto pela Universidade do Estado do Rio Grande do Norte (UERN)',
     avatar: raul,
-    Linkedin: '',
+    Linkedin: 'https://www.linkedin.com/in/raul-paradeda/?isSelfProfile=false',
     lattesLink:'http://lattes.cnpq.br/7719675103212706',
     bio: 'Arquiteto de jogos e mestre em designs lúdicos voltados para engajamento e inclusão.'
   },
@@ -66,7 +66,7 @@ export const FOUNDERS_DATA: Founder[] = [
     name: 'Dr. Alan de Oliveira Santana',
     role: 'Professor co-orientador do projeto pela Universidade do Estado do Rio Grande do Norte (UERN)',
     avatar: Alan,
-    Linkedin: '',
+    Linkedin: 'https://www.linkedin.com/in/alan-santana-62382068',
     lattesLink: 'http://lattes.cnpq.br/7875175032115307',
     bio: 'Arquiteto de jogos e mestre em designs lúdicos voltados para engajamento e inclusão.'
   }
