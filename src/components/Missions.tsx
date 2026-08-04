@@ -30,9 +30,9 @@ export default function JornadaLeitores() {
   }, [viewerImage, selectedMission]);
 
   return (
-    <div className="p-8 font-sans">
-      <h2 className="text-2xl font-bold text-orange-600 mb-2">MISSÕES LEITURA A JORNADA DOS SUPER LEITORES</h2>
-      <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+    <div className="p-8 font-sans bg-white rounded-lg shadow-lg">
+      <h2 className="text-3xl font-bold mb-6 leading-tight text-orange-600 ">MISSÕES LEITURA A JORNADA DOS SUPER LEITORES</h2>
+      <p className="text-lg text-gray-700 mb-6 leading-relaxed ">
         As missões fazem parte de uma jornada de aprendizagem baseada em gamificação e nos princípios do Desenho Universal para a Aprendizagem (DUA), promovendo desafios, diferentes formas de participação e uma experiência inclusiva, envolvente e significativa para todos.
       </p>
       
