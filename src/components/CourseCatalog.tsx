@@ -4,6 +4,7 @@ import { REVIEWS_DATA, FOUNDERS_DATA } from '../data'; // GAMES_DATA removido da
 import { Game, PageType } from '../types';
 import { motion } from 'motion/react';
 import Missions from '../components/Missions.tsx'
+import JogosEPlat from './JogosEPlat.tsx';
 
 interface CourseCatalogProps {
   onSelectGame: (gameId: string) => void;
@@ -271,6 +272,7 @@ export default function CourseCatalog({
         </div>
       </section>
 <Missions/>
+<JogosEPlat/>
       {/* 4. Core Catalog Section */}
       <section className="py-20 bg-gray-50 border-y border-gray-100" id="catalogo-jogos">
         <div className="max-w-7xl mx-auto px-6 md:px-10">

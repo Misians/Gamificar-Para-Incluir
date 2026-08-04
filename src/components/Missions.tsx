@@ -41,7 +41,7 @@ export default function JornadaLeitores() {
         {missionsData.map((mission) => (
           <div 
             key={mission.id} 
-            className="flex flex-col items-center text-center cursor-pointer min-w-[120px] transition-transform hover:scale-105"
+            className="flex flex-col max-w-[120px] min-h-[100px] items-center text-center cursor-pointer min-w-[120px] transition-transform hover:scale-105"
             onClick={() => setSelectedMission(mission)}
           >
             {/* Círculo com o número e ícone */}
@@ -212,6 +212,7 @@ export default function JornadaLeitores() {
           </div>
         </div>
       )}
+      
     </div>
   );
 }
