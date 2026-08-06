@@ -12,6 +12,7 @@ export default function ContactForm() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitError, setSubmitError] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -21,31 +22,45 @@ export default function ContactForm() {
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.nome.trim() || !formData.email.trim() || !formData.mensagem.trim()) {
+    const nome = formData.nome.trim();
+    const email = formData.email.trim();
+    const mensagem = formData.mensagem.trim();
+
+    if (!nome || !email || !mensagem) {
+      setSubmitError('Preencha Nome, E-mail e Mensagem antes de enviar.');
       setSubmitStatus('error');
       return;
     }
 
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setSubmitError('');
 
     try {
-      const formPayload = new FormData();
-      formPayload.append('name', formData.nome.trim());
-      formPayload.append('email', formData.email.trim());
-      formPayload.append('subject', `Contato - ${formData.assunto}`);
-      formPayload.append('message', formData.mensagem.trim());
+      const functionUrl = import.meta.env.VITE_CONTACT_FUNCTION_URL || (import.meta.env.DEV ? 'http://localhost:5001/gamificarparaincluir-81675/us-central1/contactForm' : '/contactForm');
 
-      const response = await fetch('https://formsubmit.co/ajax/alinebcbrum@gmail.com', {
+      const response = await fetch(functionUrl, {
         method: 'POST',
-        body: formPayload,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: nome,
+          email,
+          subject: `Contato - ${formData.assunto}`,
+          message: mensagem,
+        }),
       });
 
+      const data = await response.json().catch(() => ({}));
+
       if (!response.ok) {
-        throw new Error('Falha ao enviar mensagem');
+        throw new Error(data.message || 'Não foi possível enviar sua mensagem agora.');
       }
 
       setSubmitStatus('success');
+      setSubmitError('');
       setFormData({
         nome: '',
         email: '',
@@ -53,9 +68,14 @@ export default function ContactForm() {
         mensagem: '',
       });
     } catch (error) {
+      const message = error instanceof Error ? error.message : 'Erro inesperado ao enviar o formulário.';
+      setSubmitError(
+        message === 'Failed to fetch'
+          ? 'Não foi possível conectar ao servidor. Verifique se o Firebase Functions está implantado e acessível.'
+          : message
+      );
       setSubmitStatus('error');
-      const mailtoLink = `mailto:alinebcbrum@gmail.com?subject=${encodeURIComponent(`Contato - ${formData.assunto}`)}&body=${encodeURIComponent(`Nome: ${formData.nome.trim()}\nE-mail: ${formData.email.trim()}\n\nMensagem:\n${formData.mensagem.trim()}`)}`;
-      window.location.href = mailtoLink;
+      console.error(message);
     } finally {
       setIsSubmitting(false);
     }
@@ -100,13 +120,13 @@ export default function ContactForm() {
                   </motion.div>
                 )}
 
-                {submitStatus === 'error' && (
+                {submitStatus === 'error' && submitError && (
                   <motion.div 
                     initial={{ opacity: 0, y: -10 }} 
                     animate={{ opacity: 1, y: 0 }}
                     className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-sm"
                   >
-                    Preencha todos os campos obrigatórios (Nome, E-mail, Mensagem).
+                    {submitError}
                   </motion.div>
                 )}
 
@@ -301,7 +321,7 @@ export default function ContactForm() {
                     <h3 className="font-semibold text-sm text-[#1b1c1c] uppercase tracking-wider mb-2">Contato</h3>
                     <p>E-mail: alinebcbrum@gmail.com</p>
                     <p>Site: Gamificar para Incluir</p>
-                    <p>Endereço eletrônico: [endereço do site]</p>
+                    <p>Endereço eletrônico: https://gamificarparaincluir-81675.web.app/</p>
                     <p className="font-semibold">© 2026 Gamificar para Incluir. Conteúdo autoral protegido nos termos da legislação aplicável.</p>
                   </div>
                 </div>
