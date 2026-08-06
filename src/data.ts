@@ -32,34 +32,34 @@ export const REVIEWS_DATA: Review[] = [
 export const FOUNDERS_DATA: Founder[] = [
   {
     name: 'Aline Benevides Câmara Brum',
-    role: 'Educadora e mestranda pelo PROFEI na Universidade do Estado do Rio Grande do Norte (UERN)',
+    role: 'Professora-pesquisadora • Mestrado Profissional em Educação Inclusiva – PROFEI/UERN',
     avatar: aline,
     Linkedin: '',
     lattesLink:'http://lattes.cnpq.br/5486867621729687',
-    bio: 'Idealizadora e pesquisadora em tecnologias assistivas e em métodos pedagógicos integrados para inclusão.'
+    bio: 'Autoria e responsabilidade pelo conteúdo do projeto Gamificar para Incluir.'
   },
   {
     name: 'Dra. Francisca Maria Gomes Cabral',
-    role: 'Professora orientadora do projeto pela Universidade do Estado do Rio Grande do Norte (UERN)',
+    role: 'Orientadora acadêmica • PROFEI/UERN',
     avatar: francisca,
     Linkedin: '',
     lattesLink:'http://lattes.cnpq.br/2652883967281153',
-    bio: 'Especialista em processos cognitivos infantis com foco em engajamento emocional.'
+    bio: 'Orientadora da pesquisa acadêmica, produção textual e organização pedagógica.'
   },
   {
     name: 'Dr. Raul Benites Paradeda',
-    role: 'Professor co-orientador do projeto pela Universidade do Estado do Rio Grande do Norte (UERN)',
+    role: 'Coorientador acadêmico • PROFEI/UERN',
     avatar: raul,
     Linkedin: 'https://www.linkedin.com/in/raul-paradeda/?isSelfProfile=false',
     lattesLink:'http://lattes.cnpq.br/7719675103212706',
-    bio: 'Responsável pelo desenvolvimento do projeto e pelos designs lúdicos voltados para engajamento e inclusão.'
+    bio: 'Orientador da curadoria de conteúdos, plataformas e jogos, e orientação para o desenvolvimento web.'
   },
   {
     name: 'Artemísia Kimberlly Marques da Silva',
-    role: 'Mestranda pelo PPgCC pela UERN e UFERSA E DevWeb com foco em acessibilidade e experiência do usuário',
+    role: 'Desenvolvedora e Mestranda - PPgCC ',
     avatar: misia,
     Linkedin: 'https://br.linkedin.com/in/artem%C3%ADsia-kimberlly-87322a1b7',
     lattesLink:'http://lattes.cnpq.br/7854607386223805',
-    bio: 'Desenvolvedora web com foco em acessibilidade e experiência do usuário.'
+    bio: 'Colaboradora no desenvolvimento do projeto.'
   }
 ];

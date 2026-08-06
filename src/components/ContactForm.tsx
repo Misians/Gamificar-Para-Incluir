@@ -36,7 +36,7 @@ export default function ContactForm() {
       formPayload.append('subject', `Contato - ${formData.assunto}`);
       formPayload.append('message', formData.mensagem.trim());
 
-      const response = await fetch('https://formsubmit.co/ajax/contatoaline@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/alinebcbrum@gmail.com', {
         method: 'POST',
         body: formPayload,
       });
@@ -54,7 +54,7 @@ export default function ContactForm() {
       });
     } catch (error) {
       setSubmitStatus('error');
-      const mailtoLink = `mailto:contatoaline@gmail.com?subject=${encodeURIComponent(`Contato - ${formData.assunto}`)}&body=${encodeURIComponent(`Nome: ${formData.nome.trim()}\nE-mail: ${formData.email.trim()}\n\nMensagem:\n${formData.mensagem.trim()}`)}`;
+      const mailtoLink = `mailto:alinebcbrum@gmail.com?subject=${encodeURIComponent(`Contato - ${formData.assunto}`)}&body=${encodeURIComponent(`Nome: ${formData.nome.trim()}\nE-mail: ${formData.email.trim()}\n\nMensagem:\n${formData.mensagem.trim()}`)}`;
       window.location.href = mailtoLink;
     } finally {
       setIsSubmitting(false);
@@ -240,7 +240,7 @@ export default function ContactForm() {
                     </div>
                     <div>
                       <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Email Direto</p>
-                      <p className="font-sans text-xs md:text-sm text-[#1b1c1c] font-medium">contatoaline@gmail.com</p>
+                      <p className="font-sans text-xs md:text-sm text-[#1b1c1c] font-medium">alinebcbrum@gmail.com</p>
                     </div>
                   </div>
 
@@ -257,6 +257,54 @@ export default function ContactForm() {
                   </div>
                 </div>
 
+              </div>
+
+              <div className="bg-white/95 p-8 md:p-10 rounded-[24px] border border-[#ddc1ae]/30 shadow-xl">
+                <h2 className="font-display text-xl font-bold text-[#1b1c1c] mb-6">Autoria e Créditos</h2>
+                <div className="space-y-6 text-sm text-[#5f5e5e] leading-relaxed">
+                  <div>
+                    <h3 className="font-semibold text-sm text-[#1b1c1c] uppercase tracking-wider mb-2">Autoria e responsabilidade pelo conteúdo</h3>
+                    <p className="font-bold text-[#1b1c1c]">Aline Benevides Câmara Brum</p>
+                    <p>Professora-pesquisadora</p>
+                    <p>Mestrado Profissional em Educação Inclusiva – PROFEI</p>
+                    <p>Universidade do Estado do Rio Grande do Norte – UERN</p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-sm text-[#1b1c1c] uppercase tracking-wider mb-2">Orientação Acadêmica</h3>
+                    <p>Orientadora: Dra. Francisca Maria Gomes Cabral</p>
+                    <p>Coorientador: Dr. Raul Benites Paradeda</p>
+                    <p>Programa de Mestrado Profissional em Educação Inclusiva – PROFEI/UERN</p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-sm text-[#1b1c1c] uppercase tracking-wider mb-2">Desenvolvimento do Gamificar para Incluir</h3>
+                    <p>Pesquisa, produção textual, organização pedagógica e curadoria dos conteúdos: Aline Benevides Câmara Brum</p>
+                    <p>Orientação da pesquisa acadêmica, produção textual e organização pedagógica: Dra. Francisca Maria Gomes Cabral Soares</p>
+                    <p>Orientação da curadoria de conteúdos, plataformas e jogos, e orientação para o desenvolvimento web: Dr. Raul Benites Paradeda</p>
+                    <p>Desenvolvimento web: Artemísia</p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-sm text-[#1b1c1c] uppercase tracking-wider mb-2">Projeto Educacional “Gamificar para Incluir”</h3>
+                    <p>Recurso Educacional desenvolvido no âmbito do Mestrado Profissional em Educação Inclusiva – PROFEI, da Universidade do Estado do Rio Grande do Norte – UERN voltado à construção e ao compartilhamento de práticas, estratégias e recursos pedagógicos que articulam gamificação, alfabetização e princípios do Desenho Universal para a Aprendizagem (DUA), buscando favorecer a participação e as diferentes formas de aprender.</p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-sm text-[#1b1c1c] uppercase tracking-wider mb-2">Direitos autorais e uso do conteúdo</h3>
+                    <p>Os textos e materiais autorais disponibilizados no Gamificar para Incluir destinam-se prioritariamente a fins educacionais, formativos e de pesquisa. É permitida a utilização e a reprodução dos conteúdos autorais para fins educacionais e não comerciais, desde que sejam preservados os créditos e devidamente indicada a fonte.</p>
+                    <p className="font-semibold">Referência sugerida: BRUM, Aline Benevides Câmara. Gamificar para Incluir. Produto Educacional. Mestrado Profissional em Educação Inclusiva – PROFEI/UERN, 2026. Disponível em: [endereço eletrônico do site]. Acesso em: [dia mês ano].</p>
+                    <p>Não é permitida a reprodução, alteração ou utilização comercial de materiais de terceiros presentes neste site em desacordo com as respectivas licenças e direitos autorais.</p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-sm text-[#1b1c1c] uppercase tracking-wider mb-2">Contato</h3>
+                    <p>E-mail: alinebcbrum@gmail.com</p>
+                    <p>Site: Gamificar para Incluir</p>
+                    <p>Endereço eletrônico: [endereço do site]</p>
+                    <p className="font-semibold">© 2026 Gamificar para Incluir. Conteúdo autoral protegido nos termos da legislação aplicável.</p>
+                  </div>
+                </div>
               </div>
             </div>
 

@@ -7,8 +7,7 @@ export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
     // MUDE AQUI PARA O NOME EXATO DO REPOSITÓRIO:
-    base: '/Gamificar-Para-Incluir/', 
-    resolve: {
+      base: process.env.DEPLOY_TARGET === 'firebase' ? '/' : '/Gamificar-Para-Incluir/',    resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
       },

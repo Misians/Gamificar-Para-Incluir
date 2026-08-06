@@ -143,13 +143,13 @@ export default function Footer({ setCurrentPage }: FooterProps) {
       {/* Under footer */}
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-8 border-t border-brand-border flex flex-col sm:flex-row justify-between items-center gap-4">
         <p className="font-sans text-xs text-[#5f5e5e]" id="copyright-notice">
-          © 2026 GAMIFICAR PARA INCLUIR Platform. Publicado sob licença Creative Commons, permitindo uso e compartilhamento gratuito.
+          © 2026 Gamificar para Incluir. Conteúdo autoral protegido nos termos da legislação aplicável.
         </p>
         <div className="flex gap-4 items-center">
           <div className="w-px h-4 bg-gray-300" />
           <div className="flex items-center gap-1 text-[11px] text-gray-400">
-            <span>Desenvolvido por </span>
-            <span>@Misians</span>
+            <span>Desenvolvimento web: </span>
+            <span>Artemísia</span>
           </div>
         </div>
       </div>

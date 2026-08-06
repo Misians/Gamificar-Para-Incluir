@@ -272,20 +272,12 @@ export default function CourseCatalog({
         </div>
       </section>
 <Missions/>
-<JogosEPlat/>
       {/* 4. Core Catalog Section */}
+      
       <section className="py-20 bg-gray-50 border-y border-gray-100" id="catalogo-jogos">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          
+          <JogosEPlat />
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
-            <div className="space-y-3 text-left">
-              <h2 className="font-display text-3xl font-extrabold text-[#1b1c1c]" id="catalog-title">
-                Catálogo de Ferramentas
-              </h2>
-              <p className="text-xs md:text-sm text-[#5f5e5e]">
-                Soluções lúdicas pré-selecionadas de acordo com as diretrizes e taxonomias do DUA.
-              </p>
-            </div>
 
             {/* Quick functional category filters on the page */}
             <div className="flex flex-wrap gap-2">
