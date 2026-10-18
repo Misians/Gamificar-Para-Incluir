@@ -5,4 +5,4 @@ Este projeto é um Recurso Educacional Aberto (REA) disponibilizado sob a licen�
 [![CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/deed.pt-br)
 
 ### Como citar este projeto:
-> [Aline Benevides C. Brum], "[Gamificar para incluir]", [Ano]. Disponível sob CC BY 4.0 em: [https://github.com/Misians/Gamificar-Para-Incluir].s
+> [Aline Benevides C. Brum], "[Gamificar para incluir]", [2026]. Disponível sob CC BY 4.0 em: [https://github.com/Misians/Gamificar-Para-Incluir].
