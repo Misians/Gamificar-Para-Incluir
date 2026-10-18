@@ -475,53 +475,59 @@ export default function CourseCatalog({
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {FOUNDERS_DATA.map((founder) => (
-              <div
-                key={founder.name}
-                className="text-center space-y-4 group"
-                id={`founder-${founder.name.toLowerCase().replace(/\s/g, '-')}`}
-              >
-                {/* Rounded avatar container */}
-                <div className="w-40 h-40 mx-auto rounded-[38px] overflow-hidden border-2 border-transparent group-hover:border-[#ff8c00] shadow-lg group-hover:scale-103 transition-all duration-300">
-                  <img
-                    src={founder.avatar}
-                    alt={`Retrato oficial da idealizadora ${founder.name}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                <div className="space-y-1">
-                  <h4 className="font-display font-bold text-lg text-[#1b1c1c]">{founder.name}</h4>
-                  <p className="font-mono text-xs font-bold text-[#ff8c00] uppercase tracking-wider">{founder.role}</p>
-                  <p className="font-sans text-xs text-[#5f5e5e] max-w-xs mx-auto pt-1 leading-relaxed">
-                    {founder.bio}
-                  </p>
-                  
-                  {/* Digital links corrigidos usando a tag <a> */}
-                  <div className="flex justify-center gap-2 pt-3">
-                    <a
-                      href={founder.lattesLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-1 px-2.5 rounded bg-white text-xs border border-gray-300 text-gray-600 hover:border-[#ff8c00] hover:text-[#ff8c00] transition-colors"
-                      title="Currículo Lattes"
-                    >
-                      Lattes
-                    </a>
-                    <a
-                      href={founder.Linkedin || '#'}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-1 px-2.5 rounded bg-white text-xs border border-gray-300 text-gray-600 hover:border-[#ff8c00] hover:text-[#ff8c00] transition-colors"
-                      title="Acessar LinkedIn"
-                    >
-                      Linkedin
-                    </a>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-6">
+              {FOUNDERS_DATA.map((founder) => (
+                <div
+                  key={founder.name}
+                  className="group h-full"
+                  id={`founder-${founder.name.toLowerCase().replace(/\s/g, '-')}`}
+                >
+                  <div className="h-full rounded-[28px] border border-gray-200 bg-white p-4 shadow-[0_12px_30px_rgba(27,28,28,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#ff8c00]/50 hover:shadow-[0_20px_40px_rgba(255,140,0,0.12)]">
+                    <div className="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-[24px] overflow-hidden border-2 border-transparent shadow-md transition-all duration-300 group-hover:border-[#ff8c00]">
+                      <img
+                        src={founder.avatar}
+                        alt={`Retrato oficial da idealizadora ${founder.name}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    <div className="mt-4 space-y-2 text-center">
+                      <h4 className="font-display font-bold text-base md:text-lg leading-tight text-[#1b1c1c] min-h-[52px] flex items-center justify-center">
+                        {founder.name}
+                      </h4>
+                      <p className="font-mono text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] text-[#ff8c00] leading-relaxed min-h-[38px] flex items-center justify-center">
+                        {founder.role}
+                      </p>
+                      <p className="font-sans text-[11px] md:text-xs text-[#5f5e5e] leading-relaxed min-h-[48px]">
+                        {founder.bio}
+                      </p>
+
+                      <div className="flex justify-center gap-2 pt-2">
+                        <a
+                          href={founder.lattesLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rounded-full border border-gray-300 bg-white px-2.5 py-1.5 text-[10px] font-semibold text-gray-600 transition-colors hover:border-[#ff8c00] hover:text-[#ff8c00]"
+                          title="Currículo Lattes"
+                        >
+                          Lattes
+                        </a>
+                        <a
+                          href={founder.Linkedin || '#'}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rounded-full border border-gray-300 bg-white px-2.5 py-1.5 text-[10px] font-semibold text-gray-600 transition-colors hover:border-[#ff8c00] hover:text-[#ff8c00]"
+                          title="Acessar LinkedIn"
+                        >
+                          Linkedin
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
         </div>
