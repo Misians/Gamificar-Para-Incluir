@@ -156,20 +156,25 @@ export default function Footer({ setCurrentPage }: FooterProps) {
 
       {/* Under footer */}
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-8 border-t border-brand-border flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
+        <div className="flex flex-col items-center gap-2 text-center sm:text-left">
           <p className="font-sans text-xs text-[#5f5e5e]" id="copyright-notice">
             © 2026 Gamificar para Incluir. Conteúdo autoral protegido nos termos da legislação aplicável.
           </p>
-          <span className="hidden sm:block w-px h-4 bg-gray-300" aria-hidden="true" />
-          <a
-            href="https://creativecommons.org/licenses/by/4.0/deed.pt-br"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-sans text-[11px] text-[#ff8c00] hover:text-[#e06f00] underline-offset-2 hover:underline"
-            id="footer-license-link"
-          >
-            Licença: CC BY 4.0
-          </a>
+          <p className="font-sans text-[11px] text-[#5f5e5e] max-w-2xl leading-relaxed">
+            O sistema segue o REA: você tem liberdade para reutilizar, revisar, remixar e redistribuir este material.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-2">
+            <span className="hidden sm:block w-px h-4 bg-gray-300" aria-hidden="true" />
+            <a
+              href="https://creativecommons.org/licenses/by/4.0/deed.pt-br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-[11px] text-[#ff8c00] hover:text-[#e06f00] underline-offset-2 hover:underline"
+              id="footer-license-link"
+            >
+              Licença: CC BY 4.0
+            </a>
+          </div>
         </div>
         <div className="flex gap-4 items-center">
           <div className="w-px h-4 bg-gray-300" />
