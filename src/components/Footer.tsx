@@ -54,21 +54,35 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               </div>
             </div>
 
-            {/* Espaço para as 3 Logos Lado a Lado */}
-            <div className="flex items-center gap-4 mt-4">
-              <div className="h-18 px-3 flex items-center justify-center">
-                <img src={capeslogo} alt="Logo 1" className="max-h-10 w-auto object-contain" />
-              </div>
-              <div className="h-18 px-3 flex items-center justify-center">
-                <img src={logoTibau} alt="Logo 2" className="max-h-10 w-auto object-contain" />
-              </div>
-              <div className="h-24 px-3 flex items-center justify-center">
-                <img src={profei} alt="Logo 3" className="max-h-10 w-auto object-contain" />
-              </div>
-              <div className="h-24 px-3 flex items-center justify-center">
-                <img src={cnpq} alt="Logo 3" className="max-h-10 w-auto object-contain" />
+            {/* Carrossel de logos de apoio */}
+            <div className="mt-5 overflow-hidden rounded-2xl ">
+              <div className="flex items-center gap-4 px-3 py-3 whitespace-nowrap marquee-track">
+                {[capeslogo, logoTibau, profei, cnpq, capeslogo, logoTibau, profei, cnpq].map((logo, index) => (
+                  <div
+                    key={`${logo}-${index}`}
+                    className="flex h-20 min-w-[120px] items-center justify-center rounded-xl border border-gray-100 bg-white px-2 shadow-[0_4px_12px_rgba(0,0,0,0.03)]"
+                  >
+                    <img src={logo} alt="Logo de apoio" className="max-h-14 w-auto object-contain" />
+                  </div>
+                ))}
               </div>
             </div>
+
+            <style>{`
+              @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+              }
+
+              .marquee-track {
+                width: max-content;
+                animation: marquee 18s linear infinite;
+              }
+
+              .marquee-track:hover {
+                animation-play-state: paused;
+              }
+            `}</style>
 
           </div>
         </div>
@@ -142,9 +156,21 @@ export default function Footer({ setCurrentPage }: FooterProps) {
 
       {/* Under footer */}
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-8 border-t border-brand-border flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p className="font-sans text-xs text-[#5f5e5e]" id="copyright-notice">
-          © 2026 Gamificar para Incluir. Conteúdo autoral protegido nos termos da legislação aplicável.
-        </p>
+        <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
+          <p className="font-sans text-xs text-[#5f5e5e]" id="copyright-notice">
+            © 2026 Gamificar para Incluir. Conteúdo autoral protegido nos termos da legislação aplicável.
+          </p>
+          <span className="hidden sm:block w-px h-4 bg-gray-300" aria-hidden="true" />
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/deed.pt-br"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-sans text-[11px] text-[#ff8c00] hover:text-[#e06f00] underline-offset-2 hover:underline"
+            id="footer-license-link"
+          >
+            Licença: CC BY 4.0
+          </a>
+        </div>
         <div className="flex gap-4 items-center">
           <div className="w-px h-4 bg-gray-300" />
           <div className="flex items-center gap-1 text-[11px] text-gray-400">
